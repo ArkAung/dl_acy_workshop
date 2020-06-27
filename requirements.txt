@@ -1,5 +1,5 @@
 flask-ngrok
-flask==0.12.2
+flask==1.0
 Werkzeug==0.16.1
 fastai
 fastai
