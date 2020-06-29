@@ -51,7 +51,7 @@ if __name__ == "__main__":
     create_folders()
 
     learn = load_learner('train', 'export.pkl')
-    MAPPING =
+    MAPPING = {v:k for k,v in learn.data.c2i.items()}
     app.config['UPLOAD_FOLDER'] = UPLOAD_DIR
     app.secret_key = 'supersecret'
     app.run()
