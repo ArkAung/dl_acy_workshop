@@ -21,13 +21,13 @@ def create_folders():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index_alpha.html')
 
 
 @app.route('/upload', methods=['POST', 'GET'])
 def upload_file():
     if request.method == 'GET':
-        return render_template('upload.html')
+        return render_template('upload_alpha.html')
     elif request.method == 'POST':
         if 'file' not in request.files:
             return jsonify(success=False,
