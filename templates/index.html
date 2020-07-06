@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ကခ မှန်မှန် ရေး</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+		<h1>ကခ မှန်မှန် ရေး မှ ကြိုဆိုပါတယ်</h1>
+		<h2>အောက်က အကွက်လေး မှာ ဆွဲပြီး ဘာအက္ခရာလည်း AI ကိုခန့်မှန်းကြည့်ခိုင်းရအောင်...</h2>
+
+		<div class="centered">
+			<canvas id="canvas" width="280" height="280"></canvas>
+		</div>
+
+		<div class="centered">
+			<input type="button" class="predictButton" value="ဘာဖြစ်မလဲ" style="">
+			<input type="button" class="clearButton" id="clearButton" value="အကုန်ဖျက်" style="">
+		</div>
+
+		<div class="centered">
+			<h1 id="result"></h1>
+		</div>
+
+
+  		<script src="{{url_for('static',filename='jquery-3.2.0.min.js')}}"></script>
+	    <script src="{{url_for('static',filename='index.js')}}"></script>
+	    <script type="text/javascript">
+	   		$(".predictButton").click(function(){
+	   			$('#result').text('ခန့်မှန်းနေတယ်...');
+	   			var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};
+	   			var canvasObj = document.getElementById("canvas");
+	   			var img = canvasObj.toDataURL('image/png');
+	   			$.ajax({
+	   				type: "POST",
+	   				url: $SCRIPT_ROOT + "/predict/",
+	   				data: img,
+	   				success: function(data){
+	   					$('#result').text('🤔 ထင်တာက တော့: ' + data);
+	   				}
+	   			});
+	   		});
+	   </script>
+</body>
+</html>
