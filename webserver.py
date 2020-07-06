@@ -15,8 +15,6 @@ OUPUT_FILE = 'output.png'
 def create_folders():
     if not os.path.isdir(UPLOAD_DIR):
         os.makedirs(UPLOAD_DIR)
-    if not os.path.isdir(RESULT_DIR):
-        os.makedirs(RESULT_DIR)
 
 
 @app.route('/')
