@@ -1,68 +1,84 @@
 @import url('http://fonts.googleapis.com/css?family=Padauk:400,300');
 
-html { 
-	height: 100%;
-	background: #FFF;}
+html {
+    height: 100%;
+    background: #FFF;
+}
 
 h1 {
-	position: absolute;
-	text-align: center;
-	left:0;
-	right:0;
-	font-family: 'Padauk', Helvetica;
-	color: #000000;
-	font-size: 30px;
-	font-weight: bold;
-	z-index: -1;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    font-family: 'Padauk', Helvetica;
+    color: #000000;
+    font-size: 30px;
+    font-weight: bold;
+    z-index: -1;
 }
 
 
 h2 {
-	position: absolute;
-	text-align: center;
-	left:0;
-	right:0;
-	top:80px;
-	font-family: 'Padauk', Helvetica;
-	color: #000000;
-	font-size: 18px;
-	font-weight: 200;
-	z-index: -1;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 80px;
+    font-family: 'Padauk', Helvetica;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 200;
+    z-index: -1;
 }
 
 #canvas {
-	position: relative;
-	border: 6px solid;
-	margin: auto;
-	margin-top: 160px;
-	border-radius: 5px;
-	cursor: pointer;
-	text-align: center;
+    position: relative;
+    border: 6px solid;
+    margin: auto;
+    margin-top: 160px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
 }
 
 .centered {
-	position: relative;
-	text-align: center;
+    position: relative;
+    text-align: center;
 }
 
 .predictButton {
-	background-color: #4CAF50; /* Green */
-	border: none;
-	color: white;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-  }
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
 
-  .clearButton {
-	background-color: rgb(218, 16, 16); /* Green */
-	border: none;
-	color: white;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-  }
+.clearButton {
+    background-color: rgb(218, 16, 16); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    font-family: "Droid Sans";
+    font-size: xx-small;
+    height: fit-content;
+    width: 100%;
+    background-color: #00aeff;
+    color: white;
+    text-align: center;
+}
+
