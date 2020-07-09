@@ -1,6 +1,4 @@
 import base64
-import os
-import re
 
 from fastai.vision import *
 from flask import Flask, render_template, request
@@ -44,7 +42,7 @@ def parseImage(imgData):
 if __name__ == "__main__":
     create_folders()
 
-    learn = load_learner('train', 'export.pkl')
+    learn = load_learner('train', 'alphabets.pkl')
     MAPPING = {v: k for k, v in learn.data.c2i.items()}
     app.config['UPLOAD_FOLDER'] = UPLOAD_DIR
     app.secret_key = 'supersecret'
