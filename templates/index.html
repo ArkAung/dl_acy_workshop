@@ -34,13 +34,18 @@
 	   			var img = canvasObj.toDataURL('image/png');
 	   			$.ajax({
 	   				type: "POST",
-	   				url: $SCRIPT_ROOT + "/predict/",
+	   				url: $SCRIPT_ROOT + "/predict",
 	   				data: img,
 	   				success: function(data){
-	   					$('#result').text('🤔 ထင်တာက တော့: ' + data);
+	   					$('#result').text(data + ' လို့ထင်ပါတယ် 🤔');
 	   				}
 	   			});
 	   		});
 	   </script>
+<div class="footer">
+  <p>Made with <span style="color: #e25555;">&#9829;</span> by <a href="https://www.twitter.com/ark_aung">@ark_aung</a>
+ for ACY Deep Learning Workshop</p>
+</div>
 </body>
 </html>
+
