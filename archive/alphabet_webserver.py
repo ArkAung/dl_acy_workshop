@@ -8,18 +8,9 @@ from fastai.vision import *
 
 app = Flask(__name__)
 run_with_ngrok(app)  # Start ngrok when app is run
-UPLOAD_DIR = 'uploads'
+UPLOAD_DIR = '../uploads'
 RESULT_DIR = 'results'
-MAPPING = {0: '၀',
-           1: '၁',
-           2: '၂',
-           3: '၃',
-           4: '၄',
-           5: '၅',
-           6: '၆',
-           7: '၇',
-           8: '၈',
-           9: '၉'}
+
 
 def create_folders():
     if not os.path.isdir(UPLOAD_DIR):
@@ -30,13 +21,13 @@ def create_folders():
 
 @app.route('/')
 def index():
-    return render_template('index_digits.html')
+    return render_template('index_alpha.html')
 
 
 @app.route('/upload', methods=['POST', 'GET'])
 def upload_file():
     if request.method == 'GET':
-        return render_template('upload_digits.html')
+        return render_template('upload_alpha.html')
     elif request.method == 'POST':
         if 'file' not in request.files:
             return jsonify(success=False,
@@ -59,8 +50,8 @@ def upload_file():
 if __name__ == "__main__":
     create_folders()
 
-    learn = load_learner('train', 'export.pkl')
-
+    learn = load_learner('../train', 'export.pkl')
+    MAPPING = {v:k for k,v in learn.data.c2i.items()}
     app.config['UPLOAD_FOLDER'] = UPLOAD_DIR
     app.secret_key = 'supersecret'
     app.run()
