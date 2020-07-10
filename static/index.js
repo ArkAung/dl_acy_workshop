@@ -31,7 +31,7 @@
 	}, false);
 
 	var onPaint = function() {	
-		context.lineWidth = 30;
+		context.lineWidth = 20;
 		context.lineJoin = "round";
 		context.lineCap = "round";
 		context.strokeStyle = context.color;
