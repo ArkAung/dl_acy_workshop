@@ -2,13 +2,13 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>ကခ မှန်မှန် ရေး</title>
+	<title>{{ title }} မှန်မှန် ရေး</title>
 	<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 
 <body>
-		<h1>ကခ မှန်မှန် ရေး မှ ကြိုဆိုပါတယ်</h1>
-		<h2>အောက်က အကွက်လေး မှာ ဆွဲပြီး ဘာအက္ခရာလည်း AI ကိုခန့်မှန်းကြည့်ခိုင်းရအောင်...</h2>
+		<h1>{{ title }} မှန်မှန် ရေး မှ ကြိုဆိုပါတယ်</h1>
+		<h2>အောက်က အကွက်လေး မှာ ပုံ ဆွဲပြီး ဘာ {{ str_type }} လည်း AI ကိုခန့်မှန်းကြည့်ခိုင်းရအောင်...</h2>
 
 		<div class="centered">
 			<canvas id="canvas" width="280" height="280"></canvas>
