@@ -1,4 +1,6 @@
+import argparse
 import base64
+import os
 
 from fastai.vision import *
 from flask import Flask, render_template, request
@@ -8,6 +10,17 @@ app = Flask(__name__)
 run_with_ngrok(app)  # Start ngrok when app is run
 UPLOAD_DIR = 'uploads'
 OUPUT_FILE = 'output.png'
+TITLE_MAPPING = {'digits': "၁၂၃၄",
+                 'alphabets': "ကခ"}
+STR_TYPE_MAPPING = {'digits': "နံပါတ်",
+                    'alphabets': "အက္ခရာ"}
+
+
+def get_args():
+    parser = argparse.ArgumentParser(description="Web app to recognize hand written Myanmar characters")
+    parser.add_argument('--type', type=str, help='Type of recognition [digits|alphabets]')
+    parser.add_argument('--weights', type=str, default=None, help='Saved weight file')
+    return parser.parse_args()
 
 
 def create_folders():
@@ -17,7 +30,8 @@ def create_folders():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', title=TITLE_MAPPING[args.type],
+                           str_type=STR_TYPE_MAPPING[args.type])
 
 
 @app.route('/predict', methods=['POST'])
@@ -40,9 +54,16 @@ def parseImage(imgData):
 
 
 if __name__ == "__main__":
+    args = get_args()
+    assert args.type in ['digits', 'alphabets'], "--type should either be 'digits' or 'alphabets'"
+
     create_folders()
 
-    learn = load_learner('train', 'alphabets.pkl')
+    if args.weights is None:
+        learn = load_learner('train', 'export.pkl')
+    else:
+        path, filename = os.path.split(args.weights)
+        learn = load_learner(path, filename)
     MAPPING = {v: k for k, v in learn.data.c2i.items()}
     app.config['UPLOAD_FOLDER'] = UPLOAD_DIR
     app.secret_key = 'supersecret'
