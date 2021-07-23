@@ -29,7 +29,7 @@ class ConvolutionalNN(nn.Module):
         # Since input image has been downsized twice by max pool layers, when flattening the output tensor from conv2
         # we have to multiply output channels of conv2 * width of input_size downsized twice (divide by 4) *
         # height of input_size downsized twice (divide by 4)
-        self.fc1 = nn.Linear(32 * input_size[0]/4 * input_size[1]/4, num_classes)
+        self.fc1 = nn.Linear(32 * input_size[0]//4 * input_size[1]//4, num_classes)
 
     def forward(self, x):
         x = self.conv1(x)
