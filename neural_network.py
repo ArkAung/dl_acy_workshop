@@ -2,7 +2,7 @@ import torch.nn as nn
 
 
 class ConvolutionalNN(nn.Module):
-    def __init__(self, in_channel, input_size, num_classes):
+    def __init__(self, input_size, in_channel, num_classes):
         super(ConvolutionalNN, self).__init__()
         self.conv1 = nn.Sequential(
             nn.Conv2d(
