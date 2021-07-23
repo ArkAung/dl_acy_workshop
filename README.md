@@ -9,13 +9,13 @@ Workshop exercise #2: [![Open In Colab](https://colab.research.google.com/assets
 
 ## For those who want to test this
 
-This repo contains a minimal Flask webserver will serve you a minimal web app which recognizes handwritten
-digits and alphabets based on your drawings. Additionally, publicly accessible URL is created using Ngrok.
+This repo contains a minimal Flask webserver will serve you a minimal web app which recognizes Myanmar handwritten
+digits and alphabets based on your drawings. Additionally, publicly accessible URL for the webserver is created using Ngrok.
 
 The accompanying Jupyter Notebook is meant to be opened in Google CoLab. It contains procedures to:
 - Download required libraries
 - Augment data
-- Build and train nerual network
+- Build and train neural network
 - Run the webserver with Ngrok
 
 ### Preparation
