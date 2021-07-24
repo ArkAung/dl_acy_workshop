@@ -5,7 +5,6 @@ import os
 from fastai.vision import *
 from flask import Flask, render_template, request
 from flask_ngrok import run_with_ngrok
-from neural_network import ConvolutionalNN, FullyConnectedNN
 
 
 app = Flask(__name__)
